@@ -1,3 +1,4 @@
+// IMPORT JS FILES HERE
 import "./styles/main.scss";
 
 import { Slider } from "./scripts/slider";
