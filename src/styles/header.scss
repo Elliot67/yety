@@ -1,0 +1,10 @@
+.Header{
+    background-color: $lightRed;
+    display: flex;
+
+    &-container{
+        margin: auto;
+        max-width: $containerWidth;
+        height: 100px;
+    }
+}

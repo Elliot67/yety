@@ -1,0 +1,22 @@
+//
+// BASIC RESET
+body{
+    margin: 0;
+}
+
+
+//
+// VARIABLES  - BREAKPOINTS | COLORS | DIMENSIONS
+$minPad: 768px;
+$minDesktop: 1024px;
+
+$yellow: #FCF55C;
+$lightOrange: #FCBC5C;
+$lightRed: #F87A52;
+
+$containerWidth: 1100px;
+
+
+//
+// IMPORTATION
+@import "header.scss";

@@ -19,7 +19,9 @@ module.exports = env => {
         watch = true;
         filename = "[name]-bundle.js";
         plugins = [
-            new HtmlWebpackPlugin({template: "./src/template.html"}),
+            new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle isntance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
+                template: "./src/template.html"
+            }),
             new CleanWebpackPlugin()
         ]
         scssModules = [
@@ -51,8 +53,12 @@ module.exports = env => {
         watch = false;
         filename = "[name]-[contentHash]-bundle.js";
         plugins = [
-            new HtmlWebpackPlugin({template: "./src/template.html"}),
-            new MiniCssExtractPlugin({filename: "[name]-[contentHash].css"}),
+            new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle isntance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
+                template: "./src/template.html"
+            }),
+            new MiniCssExtractPlugin({
+                filename: "[name]-[contentHash].css"
+            }),
             new CleanWebpackPlugin()
         ];
         scssModules = [
@@ -63,13 +69,15 @@ module.exports = env => {
         ];
     }
 
-    console.log("Running webpack as " + env.MODE);
+    console.log('\x1b[1;33m', "--------------------------------------", '\x1b[0m');
+    console.log("Running webpack in", '\x1b[1;35m' + env.MODE + '\x1b[0m', "mode");
+    console.log('\x1b[1;33m', "--------------------------------------", '\x1b[0m');
 
     return {
         mode: mode,
         entry: {
-            main: "./src/index.js",
-            bundle: "./src/vendor.js"
+            main: "./src/index.js"
+            //bundle: "./src/vendor.js" Pour créer un fichier séparé consacré au librairies
         },
         devtool: devtool,
         watch: watch,
