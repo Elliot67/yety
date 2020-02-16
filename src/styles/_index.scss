@@ -1,0 +1,50 @@
+//
+// VARIABLES
+// breakpoints
+$minPad: 768px;
+$maxPad: 1023px;
+$minDesktop: 1024px;
+
+// colors
+$yellow: #fcf55c;
+$light-orange: #fcbc5c;
+$light-red: #f87a52;
+$black: #000000;
+$white: #ffffff;
+$nuance-grise-1: #f0ecec;
+$nuance-grise-2: #FDF8E0;
+$lobster: "Lobster Two", Arial, cursive;
+$pt-serif: "PT Serif", Georgia, serif;
+$grey: #c4c4c4;
+$button: #EEEAD7;
+
+// sizes
+$container-width: 1100px;
+
+// mixins
+@mixin pad-and-bigger {
+	@media screen and (min-width: $minPad) {
+		@content;
+	}
+}
+
+@mixin pad-only {
+	@media screen and (min-width: $minPad) and (max-width: $maxPad) {
+		@content;
+	}
+}
+
+
+@mixin desktop-and-bigger {
+	@media screen and (min-width: $minDesktop) {
+		@content;
+	}
+}
+
+//
+// IMPORTATION
+@import "./_global";
+@import "./header";
+@import "./preview";
+@import "./introduction";
+@import "./date";

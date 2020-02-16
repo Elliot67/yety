@@ -1,0 +1,38 @@
+.Introduction {
+	background: linear-gradient(to right, $nuance-grise-1 50%, $white 50%);
+	margin-bottom: 80px;
+
+	&-container {
+		background-color: $nuance-grise-1;
+
+		@include desktop-and-bigger {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 40px;
+		}
+	}
+
+	&-left {
+        margin-bottom: 20px;
+
+		@include pad-only {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+        
+        @include desktop-and-bigger{
+            margin-bottom: 0;
+        }
+	}
+
+	&-picture {
+        width: 100%;
+        height: 100%;
+		object-fit: cover;
+
+		@include desktop-and-bigger {
+			box-shadow: 25px -30px $grey, 20px 20px 20px rgba(0, 0, 0, 0.25);
+		}
+	}
+}

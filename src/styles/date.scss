@@ -1,0 +1,46 @@
+.Date{
+    background: linear-gradient(to right, $white 50%, $nuance-grise-2 50%);
+    margin-bottom: 80px;
+
+    &-container{
+        background-color: $nuance-grise-2;
+
+		@include desktop-and-bigger {
+			display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+		}
+    }
+
+    &-list{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-listItem{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        justify-items: center;
+        align-items: center;
+        column-gap: 15px;
+        border-top: solid $black 1px;
+        padding: 10px;
+
+        @include pad-only{
+            padding: 10px 20px;
+        }
+
+        @include pad-and-bigger{
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+
+        &:last-child{
+            border-bottom: solid $black 1px;
+        }
+    }
+
+    &-street{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
