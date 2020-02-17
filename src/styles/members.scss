@@ -1,0 +1,46 @@
+.Members {
+	background-color: $nuance-grise-3;
+
+	@include desktop-and-bigger {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+    }
+
+    &-left{
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns:auto 1fr;
+
+        @include desktop-and-bigger{
+            margin-bottom: 0;
+        }
+    }
+
+    &-names{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: flex-end;
+    }
+
+    &-namesItem{
+        transform: rotate(-90deg) translateY(1em);
+        transform-origin: bottom center;
+    }
+
+    
+    &-right{
+        @include pad-only{
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+
+	&-picture {
+        height: 100%;
+		width: 100%;
+		object-fit: cover;
+    }
+}
