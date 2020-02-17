@@ -12,6 +12,13 @@
 		}
     }
 
+    &-left{
+        margin-bottom: 20px;
+        @include desktop-and-bigger{
+            margin-bottom: 0;
+        }
+    }
+
     &-list{
         display: flex;
         flex-direction: column;
@@ -42,5 +49,40 @@
     &-street{
         display: flex;
         flex-wrap: wrap;
+    }
+
+    &-right{
+        display: flex;
+        height: 400px;
+
+        @include desktop-and-bigger {
+            position: relative;
+        }
+    }
+
+    &-picture{
+        height: 100%;
+        width: 40%;
+        object-fit: cover;
+
+        @include desktop-and-bigger {
+            width: auto;
+            height: calc(100% + 150px);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+			box-shadow: 40px -20px $light-grey, 20px 20px 20px rgba(0, 0, 0, 0.25);
+		}
+    }
+
+    &-pictureMobile{
+        height: 100%;
+        width: 60%;
+        object-fit: cover;
+
+        @include desktop-and-bigger{
+            display: none;
+        }
     }
 }
