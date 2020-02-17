@@ -35,6 +35,17 @@
 	}
 }
 
+.bigTitle{
+	font-size: 45px;
+	font-family: $lobster;
+	margin-bottom: 0.8rem;
+	color: $black;
+	text-transform: uppercase;
+	@include desktop-and-bigger {
+		font-size: 50px;
+	}
+}
+
 .title {
 	font-size: 22px;
 	font-family: $lobster;

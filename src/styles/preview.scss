@@ -1,5 +1,13 @@
 .Preview{
     margin-top: 80px; // For the header
     margin-bottom: 80px;
-    height: 1px; // Provisoire
+    background-color: $button;
+    height: calc(100vh - 80px);
+
+    &-container{
+        @include desktop-and-bigger{
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+    }
 }
