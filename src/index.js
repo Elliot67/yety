@@ -4,7 +4,8 @@
 import "./styles/_index.scss";
 
 // IMPORT JS FILES HERE
+import { Header } from "./scripts/header";
 import { Slider } from "./scripts/slider";
-const slider = new Slider();
 
-slider.init();
+const header = new Header();
+const slider = new Slider();

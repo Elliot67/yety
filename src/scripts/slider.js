@@ -1,7 +1,7 @@
 export class Slider{
 
-    init(){
-        console.log('hello world');
+    constructor(){
+        console.log('Slider init');
     }
 
 }

@@ -1,32 +1,87 @@
 .Header {
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: $light-red;
-	display: flex;
-    height: 80px;
-    
-	&::before,
-	&::after {
-		content: "";
-		background-color: $white;
-		position: absolute;
-		left: 0;
+	top: 20px;
+	right: 20px;
+	
+	@include desktop-and-bigger{
+		position: sticky;
+		top: 0;
 		right: 0;
-		height: 2px;
-	}
-	&::after {
-		top: 10px;
-	}
-	&::before {
-		bottom: 10px;
+		display: flex;
+		background-color: $light-red;
+		left: 0;
+		height: 80px;
+
+		&::before,
+		&::after {
+			content: "";
+			background-color: $white;
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 2px;
+		}
+		&::after {
+			top: 10px;
+		}
+		&::before {
+			bottom: 10px;
+		}
 	}
 
-	&-container {
+	/* Mobile menu button */
+	&-buttonContainer{
+		@include desktop-and-bigger{
+			display: none;
+		}
+	}
+
+	&-button{
+		height: 20px;
 		display: flex;
-		justify-content: space-between;
+		align-items: center;
+	}
+
+	&-line{
+		width: 25px;
+		height: 4px;
+		border-radius: 5px;
+		background-color: $light-red;
 		position: relative;
+	}
+
+	&-line::before, &-line::after{
+		content: "";
+		position: absolute;
+		left: 0;
+		width: 25px;
+		height: 4px;
+		border-radius: 5px;
+		background-color: $light-red;
+	}
+
+	&-line::before{
+		bottom: 8px;
+	}
+
+	&-line::after{
+		top: 8px;
+	}
+
+	/* Toggle class */
+	.activeMenu &-container{
+		display: initial;
+	}
+
+	/* Menu */
+	&-container {
+		display: none;
+
+		@include desktop-and-bigger{
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+		}
 	}
 
 	&-halfContainer {
