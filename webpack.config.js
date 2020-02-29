@@ -14,15 +14,14 @@ module.exports = env => {
     let plugins;
 
     if(env.MODE == "development"){
-        devtool = "source-map";
+        devtool = "cheap-module-eval-source-map";
         mode = "development";
         watch = true;
         filename = "[name]-bundle.js";
         plugins = [
             new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle isntance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
                 template: "./src/template.html"
-            }),
-            new CleanWebpackPlugin()
+            })
         ]
         scssModules = [
             "style-loader", // Inject style js in the DOM
@@ -76,14 +75,21 @@ module.exports = env => {
     return {
         mode: mode,
         entry: {
-            main: "./src/index.js"
-            //bundle: "./src/vendor.js" Pour créer un fichier séparé consacré au librairies
+            main: ["./src/index.js", "./src/index.scss"]
+            //vendor: "./src/vendor.js" Pour créer un fichier séparé consacré au librairies
         },
         devtool: devtool,
         watch: watch,
         output: {
             filename: filename,
             path: path.resolve(__dirname, "dist")
+        },
+        resolve: {
+            alias: {
+                '@styles': path.resolve('./src/styles/'),
+                '@scripts': path.resolve('./src/scripts/'),
+                '@assets': path.resolve('./src/assets/')
+            }
         },
         plugins: plugins,
         module: {

@@ -1,15 +1,14 @@
 .Header {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	
-	@include desktop-and-bigger{
+	z-index: 9999;
+
+	@include desktop-and-bigger {
+		// Les barres blanches
 		position: sticky;
 		top: 0;
 		right: 0;
+		left: 0;
 		display: flex;
 		background-color: $light-red;
-		left: 0;
 		height: 80px;
 
 		&::before,
@@ -30,19 +29,23 @@
 	}
 
 	/* Mobile menu button */
-	&-buttonContainer{
-		@include desktop-and-bigger{
+	&-buttonContainer {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+
+		@include desktop-and-bigger {
 			display: none;
 		}
 	}
 
-	&-button{
+	&-button {
 		height: 20px;
 		display: flex;
 		align-items: center;
 	}
 
-	&-line{
+	&-line {
 		width: 25px;
 		height: 4px;
 		border-radius: 5px;
@@ -50,7 +53,8 @@
 		position: relative;
 	}
 
-	&-line::before, &-line::after{
+	&-line::before,
+	&-line::after {
 		content: "";
 		position: absolute;
 		left: 0;
@@ -60,24 +64,19 @@
 		background-color: $light-red;
 	}
 
-	&-line::before{
+	&-line::before {
 		bottom: 8px;
 	}
 
-	&-line::after{
+	&-line::after {
 		top: 8px;
-	}
-
-	/* Toggle class */
-	.activeMenu &-container{
-		display: initial;
 	}
 
 	/* Menu */
 	&-container {
 		display: none;
 
-		@include desktop-and-bigger{
+		@include desktop-and-bigger {
 			display: flex;
 			justify-content: space-between;
 			position: relative;
@@ -98,21 +97,55 @@
 	}
 
 	&-logoContainer {
-		box-sizing: content-box;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: $light-red;
-		border-radius: 50%;
-		padding: 10px;
-		height: 100px;
-		width: 100px;
-		display: flex;
+		display: none;
+
+		@include desktop-and-bigger {
+			box-sizing: content-box;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: $light-red;
+			border-radius: 50%;
+			padding: 10px;
+			height: 100px;
+			width: 100px;
+			display: flex;
+		}
 	}
 
 	&-logo {
 		margin: auto auto 0 auto;
 		width: 100px;
+	}
+}
+
+/* Toggle class */
+.activeMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #96969669;
+
+	.Header-container {
+		background-color: $light-red;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.Header-halfContainer {
+		width: 100%;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.Header-line {
+		background-color: $light-orange;
+
+		&::before, &::after{
+			background-color: $light-orange;
+		}
 	}
 }

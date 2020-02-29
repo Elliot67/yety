@@ -14,6 +14,10 @@
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .container {
 	max-width: calc(#{$container-width} - 40px);
 	width: 100%;
