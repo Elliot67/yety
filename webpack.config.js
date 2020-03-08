@@ -12,8 +12,9 @@ module.exports = env => {
     let filename;
     let scssModules;
     let plugins;
+    let imgLoader;
 
-    if(env.MODE == "development"){
+    if (env.MODE == "development") {
         devtool = "cheap-module-eval-source-map";
         mode = "development";
         watch = true;
@@ -22,7 +23,7 @@ module.exports = env => {
             new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle isntance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
                 template: "./src/template.html"
             })
-        ]
+        ];
         scssModules = [
             "style-loader", // Inject style js in the DOM
             { // Turns css to js
@@ -44,15 +45,21 @@ module.exports = env => {
                 }
             }
         ];
+        imgLoader = {
+            loader: "img-loader",
+            options: {
+                plugins: []
+            }
+        };
     }
 
-    if(env.MODE == 'production'){
+    if (env.MODE == 'production') {
         devtool = false;
         mode = "production";
         watch = false;
         filename = "[name]-[contentHash]-bundle.js";
         plugins = [
-            new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle isntance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
+            new HtmlWebpackPlugin({ // Pour ajouter un autre fichier HTML, simplement créer une nouvelle instance de l'objet - https://dev.to/mariorodeghiero/multiple-html-files-with-htmlwebpackplugin-19bf
                 template: "./src/template.html"
             }),
             new MiniCssExtractPlugin({
@@ -66,6 +73,30 @@ module.exports = env => {
             "postcss-loader", // Ajouter des prefixes avec autoprefixer (fichier postcss.config.js)
             "sass-loader" // Turns sass into css
         ];
+        imgLoader = {
+            loader: 'img-loader',
+            options: {
+                plugins: [
+                    require('imagemin-gifsicle')({
+                        interlaced: false
+                    }),
+                    require('imagemin-mozjpeg')({
+                        progressive: true,
+                        arithmetic: false
+                    }),
+                    require('imagemin-pngquant')({
+                        floyd: 0.5,
+                        speed: 2
+                    }),
+                    require('imagemin-svgo')({
+                        plugins: [
+                            { removeTitle: true },
+                            { convertPathData: false }
+                        ]
+                    })
+                ]
+            }
+        };
     }
 
     console.log('\x1b[1;33m', "--------------------------------------", '\x1b[0m');
@@ -100,21 +131,31 @@ module.exports = env => {
                 },
                 {
                     test: /\.html$/,
-                    use: ["html-loader"]
-                },
-                {
-                    test: /\.(svg|png|jpg|gif)$/, // Ajouter les nouveaux types quand il y en a
-                    use: {
-                        loader: "file-loader",
+                    use: { // Pour importer les fichiers nécessaires
+                        loader: "html-loader",
                         options: {
-                            name: "[name]-[hash].[ext]",
-                            outputPath: "assets",
-                            esModule: false
+                            attrs: [':srcset',':data-srcset', 'img:data-src', 'img:src', 'audio:src', 'video:src', 'track:src', 'embed:src', 'source:src', 'input:src', 'object:data', 'script:src']
                         }
                     }
+                },
+                {
+                    test: /\.(svg|png|jpg|jpeg|gif)$/, // Ajouter les nouveaux types quand il y en a
+                    use: [
+                        { // Pour créer les images dans dist
+                            loader: "file-loader",
+                            options: {
+                                name: "[name]-[hash].[ext]",
+                                outputPath: "assets",
+                                esModule: false
+                            }
+                        },
+                        imgLoader // Pour optimiser les images
+                    ]
                 }
             ]
-        },
+        }
     }
 
 }
+
+//TODO: https://www.npmjs.com/package/imagemin-webpack-plugin ou https://iamakulov.com/notes/optimize-images-webpack/

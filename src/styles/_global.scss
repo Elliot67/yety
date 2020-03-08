@@ -16,6 +16,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 .container {
@@ -82,5 +83,38 @@ button{
 	&:active, &:focus{
 		background-color: $light-red;
 		outline: 0!important;
+	}
+}
+
+// Pour les animations de scroll
+.animationFromLeft {
+	animation: fromLeft .7s ease-out;
+}
+.animationFromRight {
+	animation: fromRight .7s ease-out;
+}
+
+@include desktop-and-bigger {
+	[data-scrollAnimation='fromLeft'] {
+		transform: translateX(-50vw);
+	}
+	[data-scrollAnimation='fromRight'] {
+		transform: translateX(50vw);
+	}
+}
+
+@keyframes fromLeft {
+	0% {
+		transform: translateX(-100vw);
+	} 100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fromRight {
+	0% {
+		transform: translateX(100vw);
+	} 100% {
+		transform: translateX(0);
 	}
 }

@@ -30,9 +30,10 @@
 
 	/* Mobile menu button */
 	&-buttonContainer {
-		position: absolute;
+		position: fixed;
 		top: 20px;
 		right: 20px;
+		cursor: pointer;
 
 		@include desktop-and-bigger {
 			display: none;
@@ -51,6 +52,7 @@
 		border-radius: 5px;
 		background-color: $light-red;
 		position: relative;
+		transition-duration: 0.2s;
 	}
 
 	&-line::before,
@@ -62,6 +64,7 @@
 		height: 4px;
 		border-radius: 5px;
 		background-color: $light-red;
+		transition-duration: 0.2s;
 	}
 
 	&-line::before {

@@ -16,15 +16,7 @@ export class Header {
     }
 
     toggleMenu() {
-
         this.header.classList.toggle('activeMenu');
-        this.menuOpen = !this.menuOpen;
-
-        if (this.menuOpen) { // FIXME: Cela enlève la barre de navigation ce qui change la taille du viewport, voir si il n'y a pas une meilleure solution
-            document.querySelector('body').style.overflow = "hidden";
-        } else {
-            document.querySelector('body').style.overflow = "initial";
-        }
     }
 
 }
