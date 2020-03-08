@@ -1,75 +1,76 @@
-export class ScrollAnimation{
+export class ScrollAnimation {
 
-    constructor(){
-        console.log('ScrollAnimation init');
-        this.fromLeft = [].slice.call(document.querySelectorAll("[data-scrollAnimation='fromLeft']"));
-        this.fromRight = [].slice.call(document.querySelectorAll("[data-scrollAnimation='fromRight']"));
+	constructor() {
+		console.log('ScrollAnimation init');
 
-        console.log('animatedElements : ', this.fromLeft, this.fromRight);
+		this.fromLeft = [].slice.call(document.querySelectorAll("[data-scrollAnimation='fromLeft']"));
+		this.fromRight = [].slice.call(document.querySelectorAll("[data-scrollAnimation='fromRight']"));
+		this.allElements = this.fromLeft.concat(this.fromRight);
 
-        document.addEventListener('resize', this.checkWidth, false);
-        this.checkWidth();      
+		if (window.innerWidth >= window.$minDesktop) { // PC
+			if ("IntersectionObserver" in window) {
+				this.init();
+				window.addEventListener('resize', this.checkWidth.bind(this), { passive: true });
+			} else {
+				this.fallbackInit();
+				window.addEventListener('resize', this.checkWidth.bind(this), { passive: true });
+			}
 
-        if("IntersectionObserver" in window && this.desktop) {
-            this.init();
-        } else if(this.desktop) {
-            this.fallbackInit();
-        }
-    }
+		} else { // Mobile
+			this.removeAttributes();
+		}
+	}
 
-    checkWidth(){
-        if(window.innerWidth < window.$minDesktop) {
-            this.desktop = false;
-            if(this.animationFromLeft || this.animationFromRight) {
-                this.animationFromLeft.disconnect();
-                this.animationFromRight.disconnect();
+	init() {
+		this.animatedElements = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					let element = entry.target;
+					if (element.dataset.scrollanimation === "fromLeft") {
+						console.log('FROM LEFT');
+						element.classList.add('animationFromLeft');
+					} else if (element.dataset.scrollanimation === "fromRight") {
+						console.log('FROM RIGHT');
+						element.classList.add('animationFromRight');
+					}
+					element.removeAttribute('data-scrollAnimation');
+					this.animatedElements.unobserve(element);
+				}
+			});
+		});
 
-                [...this.animationFromLeft, ...this.animationFromRight].forEach((element) => {
-                    element.removeAttribute('data-scrollAnimation');
-                    // TODO: Voir s'il ne faut pas faire d'autres choses
-                });
-            }
-        } else if(!this.desktop) {
-            this.desktop = true;
-        }
-    }
+		this.allElements.forEach((element) => {
+			this.animatedElements.observe(element);
+		});
 
-    init() {
-        this.animationFromLeft = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    let element = entry.target;
-                    element.classList.add('animationFromLeft');
-                    element.removeAttribute('data-scrollAnimation');
-                    this.animationFromLeft .unobserve(element);
-                }
-            });
-        });
+		//TODO: Ajouter animation opacity sur les élements qui sont au centre
+	}
 
-        this.animationFromRight = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    let element = entry.target;
-                    element.classList.add('animationFromRight');
-                    element.removeAttribute('data-scrollAnimation');
-                    this.animationFromRight.unobserve(element);
-                }
-            });
-        });
-        
-        this.fromLeft.forEach((element) => {
-            this.animationFromLeft.observe(element);
-        });
 
-        this.fromRight.forEach((element) => {
-            this.animationFromRight.observe(element);
-        });
+	removeAttributes() {
+		this.allElements.forEach((element) => {
+			if (element.dataset.scrollanimation) {
+				element.removeAttribute('data-scrollAnimation');
+			} else if (element.classList.contains("animationFromLeft")) {
+				element.classList.remove('animationFromLeft');
+			} else if (element.classList.contains("animationFromRight")) {
+				element.classList.remove('animationFromRight');
+			}
+		});
+	}
 
-        //TODO: Ajouter animation opacity sur les élements qui sont au centre
-    }
+	checkWidth() {
+		console.log("checking width");
+		if (window.innerWidth < window.$minDesktop) {
+			//window.removeEventListener('resize', this.checkWidth); FIXME: Voir comment faire pour que ça fonctionne
+			this.removeAttributes();
+			this.animatedElements.disconnect();
+		}
+	}
 
-    fallbackInit(){
-        console.log('IntersectionObserver not available in navigator');
-    }
+
+	fallbackInit() {
+		console.log('IntersectionObserver not available in navigator');
+	}
 
 }
