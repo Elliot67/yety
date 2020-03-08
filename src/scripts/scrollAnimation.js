@@ -17,7 +17,7 @@ export class ScrollAnimation {
 			}
 
 		} else { // Mobile
-			this.removeAttributes();
+			this.cleanAttributes();
 		}
 	}
 
@@ -42,12 +42,10 @@ export class ScrollAnimation {
 		this.allElements.forEach((element) => {
 			this.animatedElements.observe(element);
 		});
-
-		//TODO: Ajouter animation opacity sur les élements qui sont au centre
 	}
 
 
-	removeAttributes() {
+	cleanAttributes() {
 		this.allElements.forEach((element) => {
 			if (element.dataset.scrollanimation) {
 				element.removeAttribute('data-scrollAnimation');
@@ -62,8 +60,8 @@ export class ScrollAnimation {
 	checkWidth() {
 		console.log("checking width");
 		if (window.innerWidth < window.$minDesktop) {
-			//window.removeEventListener('resize', this.checkWidth); FIXME: Voir comment faire pour que ça fonctionne
-			this.removeAttributes();
+			window.removeEventListener('resize', this.checkWidth, {passive: true}); //FIXME: L'évenement listener n'est pas supprimé
+			this.cleanAttributes();
 			this.animatedElements.disconnect();
 		}
 	}
@@ -71,6 +69,7 @@ export class ScrollAnimation {
 
 	fallbackInit() {
 		console.log('IntersectionObserver not available in navigator');
+		//TODO: Ajouter fallback
 	}
 
 }

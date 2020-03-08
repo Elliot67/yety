@@ -88,24 +88,24 @@ button{
 
 // Pour les animations de scroll
 .animationFromLeft {
-	animation: fromLeft .7s ease-out;
+	animation: fromLeft 1s cubic-bezier(0.16, 0.71, 0.18, 0.92);
 }
 .animationFromRight {
-	animation: fromRight .7s ease-out;
+	animation: fromRight 1s cubic-bezier(0.16, 0.71, 0.18, 0.92);
 }
 
 @include desktop-and-bigger {
 	[data-scrollAnimation='fromLeft'] {
-		transform: translateX(-50vw);
+		transform: translateX(-95vw);
 	}
 	[data-scrollAnimation='fromRight'] {
-		transform: translateX(50vw);
+		transform: translateX(95vw);
 	}
 }
 
 @keyframes fromLeft {
 	0% {
-		transform: translateX(-100vw);
+		transform: translateX(-95vw);
 	} 100% {
 		transform: translateX(0);
 	}
@@ -113,7 +113,7 @@ button{
 
 @keyframes fromRight {
 	0% {
-		transform: translateX(100vw);
+		transform: translateX(95vw);
 	} 100% {
 		transform: translateX(0);
 	}
