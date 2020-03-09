@@ -1,0 +1,26 @@
+.Contact {
+    background: linear-gradient(to right, $white 50%, $nuance-grise-1 50%);
+    margin-bottom: 80px;
+    
+    &-container {
+        background-color: $nuance-grise-1;
+		@include desktop-and-bigger {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 40px;
+		}
+    }
+
+    &-item {
+        display: grid;
+        grid-template-columns: 1fr 100px;
+        column-gap: 20px;
+        align-items: baseline;
+        margin-bottom: 10px;
+    }
+
+    &-formContainer {
+        background-color: $light-grey;
+        height: 100%;
+    }
+}

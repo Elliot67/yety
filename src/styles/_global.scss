@@ -86,6 +86,13 @@ button{
 	}
 }
 
+textarea {
+	width: 100%;
+	min-height: 100px;
+	min-width: 100%;
+	max-width: 100%;
+}
+
 // Pour les animations de scroll
 .animationFromLeft {
 	animation: fromLeft 1s cubic-bezier(0.16, 0.71, 0.18, 0.92);
