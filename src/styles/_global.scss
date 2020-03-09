@@ -19,17 +19,20 @@ html {
 	overflow-x: hidden;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 .container {
 	max-width: calc(#{$container-width} - 40px);
 	width: 100%;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
 	padding-top: 50px;
     padding-bottom: 50px;
-    
     @include pad-only{
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: 25px;
+        padding-left: 25px;
     }
 
 	@include desktop-and-bigger {
@@ -70,11 +73,16 @@ html {
 	}
 }
 
-button{
-	padding: 5px 10px;
+button, .button {
+	padding: 5px 13px;
 	border: solid $black 1px;
 	background-color: $button;
 	cursor: pointer;
+	outline: 0!important;
+	min-width: 100px;
+	text-align: center;
+	color: initial;
+	text-decoration: initial;
 
 	&:hover{
 		background-color: $light-orange;
@@ -82,15 +90,26 @@ button{
 
 	&:active, &:focus{
 		background-color: $light-red;
-		outline: 0!important;
 	}
 }
 
-textarea {
+input[type="text"], .inputText {
+	padding: 5px 13px;
+	border: solid $black 1px;
+	background-color: $button;
+	outline: 0!important;
+	min-width: 100px;
+}
+
+textarea, .textarea {
+	padding: 5px 13px;
+	border: solid $black 1px;
+	background-color: $button;
+	outline: 0!important;
+	resize:vertical;
 	width: 100%;
-	min-height: 100px;
-	min-width: 100%;
-	max-width: 100%;
+	height: 100px;
+	min-height: 50px;
 }
 
 // Pour les animations de scroll
