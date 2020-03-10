@@ -58,9 +58,7 @@ export class ScrollAnimation {
 	}
 
 	checkWidth() {
-		console.log("checking width");
 		if (window.innerWidth < window.$minDesktop) {
-			window.removeEventListener('resize', this.checkWidth, {passive: true}); //FIXME: L'évenement listener n'est pas supprimé
 			this.cleanAttributes();
 			this.animatedElements.disconnect();
 		}
@@ -69,7 +67,7 @@ export class ScrollAnimation {
 
 	fallbackInit() {
 		console.log('IntersectionObserver not available in navigator');
-		//TODO: Ajouter fallback
+		this.cleanAttributes();
 	}
 
 }
