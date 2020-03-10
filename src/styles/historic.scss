@@ -1,0 +1,35 @@
+.Historic {
+	background: linear-gradient(to right, $white 50%, $nuance-grise-1 50%);
+    margin-bottom: 80px;
+    
+    &-container {
+        background-color: $nuance-grise-1;
+
+		@include desktop-and-bigger {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 40px;
+		}
+    }
+
+    &-left {
+
+    }
+
+    &-right {
+        position: relative;
+    }
+
+    &-picture {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: auto;
+        height: calc(100% + 200px);
+		object-fit: cover;
+		@include desktop-and-bigger {
+			box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
+		}
+	}
+}

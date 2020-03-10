@@ -41,18 +41,24 @@
 	}
 
 	&-button {
-		height: 20px;
+		height: 24px;
 		display: flex;
 		align-items: center;
 	}
 
 	&-line {
-		width: 25px;
+		width: 24px;
 		height: 4px;
 		border-radius: 5px;
 		background-color: $light-red;
 		position: relative;
-		transition-duration: 0.2s;
+		transition-duration: 0.4s;
+		transition-timing-function: cubic-bezier(
+			0.68,
+			-0.55,
+			0.27,
+			1.55
+		); // TODO: Mettre ease si ça ne convient pas
 	}
 
 	&-line::before,
@@ -60,19 +66,19 @@
 		content: "";
 		position: absolute;
 		left: 0;
-		width: 25px;
+		width: 24px;
 		height: 4px;
 		border-radius: 5px;
 		background-color: $light-red;
-		transition-duration: 0.2s;
+		transition-duration: 0.4s;
 	}
 
 	&-line::before {
-		bottom: 8px;
+		bottom: 9px;
 	}
 
 	&-line::after {
-		top: 8px;
+		top: 9px;
 	}
 
 	/* Menu */
@@ -125,30 +131,42 @@
 
 /* Toggle class */
 .activeMenu {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #96969669;
+	@include pad-and-smaller {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #96969669;
 
-	.Header-container {
-		background-color: $light-red;
-		display: flex;
-		flex-direction: column;
-	}
+		.Header-container {
+			background-color: $light-red;
+			display: flex;
+			flex-direction: column;
+		}
 
-	.Header-halfContainer {
-		width: 100%;
-		align-items: flex-start;
-		flex-direction: column;
-	}
+		.Header-halfContainer {
+			width: 100%;
+			align-items: flex-start;
+			flex-direction: column;
+		}
 
-	.Header-line {
-		background-color: $light-orange;
+		.Header-line {
+			background-color: $light-orange-transparent;
+			transform: translate(-20px);
 
-		&::before, &::after{
-			background-color: $light-orange;
+			&::before {
+				transform: translate(20px, 9px) rotate(-45deg);
+			}
+
+			&::after {
+				transform: translate(20px, -9px) rotate(45deg);
+			}
+
+			&::before,
+			&::after {
+				background-color: $light-orange;
+			}
 		}
 	}
 }

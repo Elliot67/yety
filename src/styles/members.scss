@@ -1,32 +1,33 @@
 .Members {
     background-color: $nuance-grise-3;
     margin-bottom: 80px;
-
 	@include desktop-and-bigger {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
     }
 
     &-left{
         margin-bottom: 20px;
         display: grid;
         grid-template-columns:auto 1fr;
-
+        column-gap: 30px;
         @include desktop-and-bigger{
             margin-bottom: 0;
         }
     }
 
-    &-names{
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        align-items: flex-end;
+    &-headContainer {
+        display: flex;
+        flex-direction: column-reverse;
     }
 
-    &-namesItem{
-        transform: rotate(-90deg) translateY(1em);
-        transform-origin: bottom center;
+    &-head {
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 40px;
+        border: solid $black 1px;
     }
 
     
