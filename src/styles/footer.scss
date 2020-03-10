@@ -1,0 +1,30 @@
+.Footer{
+    background-color: $nuance-footer;
+    width: 100%;
+
+    .container{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        @include desktop-and-bigger {
+            grid-template-columns: 1fr;
+        } 
+
+        &-rubrique1 {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            width: 60%;
+            padding: 20px;
+        }
+        &-rubrique2 {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            width: 60%;
+        }
+        &-rubrique3 {
+            grid-column-start: 3;
+            width: 60%;
+        }
+    }
+}
