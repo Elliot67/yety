@@ -13,22 +13,71 @@
     }
 
     &-left {
+        margin-left: 40px;
+        @include desktop-and-bigger {
+            margin-left: 70px;
+        }
+    }
 
+    &-timeItem {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: $black;
+            left: -10px;
+            @include desktop-and-bigger {
+                left: -20px;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -40px;
+            transform: rotate(-90deg);
+            height: 40px;
+            color: $light-orange;
+            @include desktop-and-bigger {
+                left: -50px;
+            }
+        }
+    }
+
+    .year2012::after {
+        content: "2012"
+    }
+    .year2016::after {
+        content: "2016"
+    }
+    .year2018::after {
+        content: "2018"
     }
 
     &-right {
-        position: relative;
+        display: none;
+        @include desktop-and-bigger {
+            display: initial;
+			position: relative;
+		}
     }
 
     &-picture {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
         width: auto;
-        height: calc(100% + 200px);
-		object-fit: cover;
+        object-fit: cover;
+        width: 100%;
 		@include desktop-and-bigger {
+            width: auto;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: calc(100% + 200px);
 			box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
 		}
 	}

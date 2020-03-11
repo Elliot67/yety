@@ -2,8 +2,7 @@
 	z-index: 9999;
 
 	@include desktop-and-bigger {
-		// Les barres blanches
-		position: sticky;
+		position: fixed;
 		top: 0;
 		right: 0;
 		left: 0;
@@ -11,6 +10,7 @@
 		background-color: $light-red;
 		height: 80px;
 
+		// Les barres blanches
 		&::before,
 		&::after {
 			content: "";
@@ -34,7 +34,6 @@
 		top: 20px;
 		right: 20px;
 		cursor: pointer;
-
 		@include desktop-and-bigger {
 			display: none;
 		}
@@ -53,12 +52,7 @@
 		background-color: $light-red;
 		position: relative;
 		transition-duration: 0.4s;
-		transition-timing-function: cubic-bezier(
-			0.68,
-			-0.55,
-			0.27,
-			1.55
-		); // TODO: Mettre ease si ça ne convient pas
+		transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 	}
 
 	&-line::before,
@@ -84,7 +78,6 @@
 	/* Menu */
 	&-container {
 		display: none;
-
 		@include desktop-and-bigger {
 			display: flex;
 			justify-content: space-between;
@@ -107,7 +100,6 @@
 
 	&-logoContainer {
 		display: none;
-
 		@include desktop-and-bigger {
 			box-sizing: content-box;
 			position: absolute;

@@ -21,20 +21,22 @@ html {
 
 body {
 	overflow-x: hidden;
+	@include desktop-and-bigger {
+		padding-top: 80px; // Pour le menu
+	}
 }
 
 .container {
 	max-width: calc(#{$container-width} - 40px);
 	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
 	padding-top: 50px;
     padding-bottom: 50px;
     @include pad-only{
         padding-right: 25px;
         padding-left: 25px;
     }
-
 	@include desktop-and-bigger {
 		padding-right: 20px;
 		padding-left: 20px;
