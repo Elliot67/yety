@@ -1,0 +1,78 @@
+.Medias {
+	background: linear-gradient(to right, $nuance-grise-2 50%, $white 50%);
+	margin-bottom: 80px;
+
+	&-container {
+		background-color: $nuance-grise-2;
+		overflow: hidden;
+	}
+
+	&-slideContainer {
+		width: 300%;
+	}
+
+	&-slide {
+		width: calc(100% / 3);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+
+	&-slideChildContainer {
+		background-color: $white;
+		width: calc(50% - 20px);
+		margin-bottom: 20px;
+		@include pad-and-bigger {
+			width: calc(33% - 30px);
+		}
+		@include desktop-and-bigger {
+			width: calc(33% - 50px);
+			box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
+			margin-bottom: 40px;
+		}
+	}
+
+	&-slideTextContainer {
+		display: none;
+		@include pad-and-bigger {
+			padding: 5px 10px;
+			display: initial;
+		}
+		@include desktop-and-bigger {
+			padding: 10px 15px;
+		}
+	}
+
+	&-slideImageContainer {
+		position: relative;
+		overflow: hidden;
+	}
+
+	&-slideImage {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&-slideLegend {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: $white; // TODO: Ajouter transparence
+		transition-duration: 0.3s;
+		opacity: 0;
+		transform: translateY(100%);
+		max-height: 100%;
+		padding: 5px 10px;
+		@include desktop-and-bigger {
+			padding: 10px 15px;
+		}
+	}
+	&-slideImageContainer:hover &-slideLegend,
+	&-slideImageContainer:active &-slideLegend {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

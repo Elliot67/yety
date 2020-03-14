@@ -30,6 +30,7 @@
 
 	/* Mobile menu button */
 	&-buttonContainer {
+		z-index: 9999;
 		position: fixed;
 		top: 20px;
 		right: 20px;
