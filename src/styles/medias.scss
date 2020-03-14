@@ -8,12 +8,17 @@
 	}
 
 	&-slideContainer {
-		width: 300%;
+		width: calc(100% * 3 + 200px);
+		display: flex;
+		justify-content: space-between;
+		animation-name: slider;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
 	}
 
 	&-slide {
-		width: calc(100% / 3);
-		display: flex;
+		width: calc((100% - 200px) / 3);
+		display: inline-flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
@@ -23,12 +28,12 @@
 		background-color: $white;
 		width: calc(50% - 20px);
 		margin-bottom: 20px;
+		box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
 		@include pad-and-bigger {
 			width: calc(33% - 30px);
 		}
 		@include desktop-and-bigger {
 			width: calc(33% - 50px);
-			box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
 			margin-bottom: 40px;
 		}
 	}
@@ -74,5 +79,35 @@
 	&-slideImageContainer:active &-slideLegend {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@keyframes slider{
+	0% {
+		transform: translateX(0);
+	}
+
+	27% {
+		transform: translateX(0);
+	}
+
+	32% {
+		transform: translateX(calc((100% - 200px) / 3 * -1 - 100px));
+	}
+
+	59% {
+		transform: translateX(calc((100% - 200px) / 3 * -1 - 100px));
+	}
+
+	64% {
+		transform :translateX(calc( 2 * (100% - 200px) / 3 * -1 - 200px));
+	}
+
+	91% {
+		transform :translateX(calc(2 * (100% - 200px) / 3 * -1 - 200px));
+	}
+
+	100% {
+		transform :translateX(0);
 	}
 }
