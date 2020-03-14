@@ -27,11 +27,12 @@
 		@include desktop-and-bigger {
 			column-gap: 20px;
 		}
-    }
+	}
 
-	&-reseaux img { // TODO: Changer les fichiers d'icones qui sont cassés
-        height: 28px;
-        margin-right: 10px;
+	&-reseaux img {
+		// TODO: Changer les fichiers d'icones qui sont cassés
+		height: 28px;
+		margin-right: 10px;
 	}
 
 	&-right {
@@ -65,5 +66,45 @@
 
 	&-send {
 		align-self: center;
+		transition-duration: 0.5s;
+	}
+
+	&-send:active,
+	&-send:focus {
+		background-color: $button;
+	}
+
+	.submit-progress {
+		min-width: 300px;
+		color: transparent;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.submit-progress:hover {
+		background-color: $button;
+	}
+
+	.submit-progress:after {
+		content: "";
+		background: $light-red;
+		position: absolute;
+		top: -5%;
+		left: -100%;
+		height: 110%;
+		width: 100%;
+		transform: translateX(0);
+		animation: fill 3s linear forwards;
+	}
+}
+@keyframes fill {
+	20% {
+		transform: translateX(0);
+	}
+	96% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(100%);
 	}
 }

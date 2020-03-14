@@ -8,9 +8,12 @@ import { Header } from "@scripts/header";
 import { Slider } from "@scripts/slider";
 import { LazyLoader } from "@scripts/lazyLoader";
 import { ScrollAnimation } from "@scripts/scrollAnimation";
+import { Form } from "@scripts/form";
 
 new Header();
 new Slider();
+new Form();
+
 document.addEventListener("DOMContentLoaded", () => {
     new LazyLoader();
     new ScrollAnimation();
