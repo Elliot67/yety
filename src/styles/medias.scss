@@ -39,13 +39,16 @@
 	}
 
 	&-slideTextContainer {
-		display: none;
-		@include pad-and-bigger {
-			padding: 5px 10px;
-			display: initial;
-		}
+		padding: 5px 10px;
 		@include desktop-and-bigger {
 			padding: 10px 15px;
+		}
+	}
+
+	&-slideTextHideMobile {
+		display: none;
+		@include pad-and-bigger {
+			display: initial;
 		}
 	}
 

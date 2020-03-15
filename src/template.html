@@ -125,22 +125,46 @@
 		<section class="container Members">
 			<div class="Members-left">
 				<div class="Members-headContainer">
-					<img class="Members-head activeTab" src="https://picsum.photos/40" alt="">
-					<img class="Members-head" src="https://picsum.photos/40" alt="">
-					<img class="Members-head" src="https://picsum.photos/40" alt="">
+					<img class="Members-head activeHead" src="https://picsum.photos/40" alt="" data-name="Thomas">
+					<img class="Members-head" src="https://picsum.photos/40" alt="" data-name="Patrick">
+					<img class="Members-head" src="https://picsum.photos/40" alt="" data-name="Yves">
 				</div>
-				<div class="Members-content">
-					<h1 class="title">Thomas</h1>
-					<p class="paragraph">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Sed sollicitudin odio quis nisi commodo, ac vestibulum
-						nibh laoreet. Nulla facilisi. Morbi metus orci, mattis
-						eget tellus quis.
-					</p>
-					<p class="paragraph">
-						Aenean egestas consequat pulvinar. Sed eu ornare nisi.
-						Nullam rutrum magna non nulla rutrum iaculis.
-					</p>
+				<div class="Members-contentContainer">
+					<div class="Members-content activeTab" data-name="Thomas">
+						<h1 class="title">Thomas</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Sed sollicitudin odio quis nisi commodo, ac vestibulum
+							nibh laoreet. Nulla facilisi. Morbi metus orci, mattis
+							eget tellus quis.
+						</p>
+						<p class="paragraph">
+							Aenean egestas consequat pulvinar. Sed eu ornare nisi.
+							Nullam rutrum magna non nulla rutrum iaculis.
+						</p>
+					</div>
+					<div class="Members-content hideTab" data-name="Patrick">
+						<h1 class="title">Thomas</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Sed sollicitudin odio quis nisi commodo, ac vestibulum
+							nibh laoreet. Nulla facilisi. Morbi metus orci, mattis
+							eget tellus quis.
+						</p>
+					</div>
+					<div class="Members-content hideTab" data-name="Yves">
+						<h1 class="title">Thomas</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Sed sollicitudin odio quis nisi commodo, ac vestibulum
+							nibh laoreet. Nulla facilisi. Morbi metus orci, mattis
+							eget tellus quis.
+						</p>
+						<p class="paragraph">
+							Aenean egestas consequat pulvinar. Sed eu ornare nisi.
+							Nullam rutrum magna non nulla rutrum iaculis.
+						</p>
+					</div>
 				</div>
 			</div>
 			<div class="Members-right">
@@ -158,7 +182,7 @@
 					<div class="Medias-slide">
 						<div class="Medias-slideChildContainer Medias-slideTextContainer">
 							<h1 class="title">Lorem ipsum</h1>
-							<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="Medias-slideTextHideMobile">consectetur adipiscing elit.</span></p>
 						</div>
 						<div class="Medias-slideChildContainer Medias-slideImageContainer">
 							<img class="Medias-slideImage" src="https://picsum.photos/200" alt="">
@@ -292,7 +316,7 @@
 		<!-- END HISTORIC | START OLD SHOWS -->
 		<section class="OldShows">
 			<div class="container">
-				<h1 class="title">Spectacles à venir</h1>
+				<h1 class="title">Spectacles passées</h1>
 				<div class="OldShows-posters">
 					<div class="OldShows-postersItem">
 						<img class="OldShows-picture" src="https://picsum.photos/300/400" alt=""/>

@@ -75,10 +75,11 @@
 	}
 
 	.submit-progress {
-		min-width: 300px;
+		min-width: 250px;
 		color: transparent;
 		position: relative;
 		overflow: hidden;
+		cursor: initial;
 	}
 
 	.submit-progress:hover {

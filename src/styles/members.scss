@@ -24,13 +24,32 @@
 		border-radius: 50%;
 		width: 40px;
 		box-shadow: 0 0 0 0 $light-red, 0 0 0 0 $light-orange;
-        transition: 0.4s;
-        cursor: pointer;
+		transition: 0.4s;
+		cursor: pointer;
 	}
 
 	// L'image selectionné
-	&-head.activeTab {
+	&-head.activeHead {
 		box-shadow: 6px 5px 0 2px $light-red, 0 0 0 14px $light-orange;
+	}
+
+	&-contentContainer {
+		overflow: hidden;
+	}
+
+	&-content {
+		transform: translateX(200px);
+		opacity: 0;
+		transition-duration: 0.5s;
+	}
+
+	.hideTab {
+		display: none;
+	}
+
+	.activeTab {
+		transform: translateX(0);
+		opacity: 1;
 	}
 
 	&-right {
