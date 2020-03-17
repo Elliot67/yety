@@ -1,5 +1,5 @@
 .Preview {
-	margin-bottom: 80px;
+	margin-bottom: 180px;
 	background-color: $button;
 	height: calc(100vh - 80px);
 
@@ -14,13 +14,30 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		transform: translateY(5%);
 	}
 
 	&-title {
 		text-align: center;
+		@include desktop-and-bigger {
+			transform: translateY(60%);
+		}
 	}
 
 	&-text {
 		text-align: center;
+		@include desktop-and-bigger {
+			transform: translateY(60%);
+		}
+	}
+	&-right{
+		background : url('assets/fondheader.png');
+		background-size: 60%;
+		background-repeat: no-repeat;
+		transform: translateX(6%);
+		background-position-y: 30px;
+		@include desktop-and-bigger {
+			transform: translateX(24%);
+		}
 	}
 }
