@@ -9,12 +9,16 @@ import { Slider } from "@scripts/slider";
 import { LazyLoader } from "@scripts/lazyLoader";
 import { ScrollAnimation } from "@scripts/scrollAnimation";
 import { Members } from "@scripts/members";
-import { Form } from "@scripts/form";
+import { SubmitFormAnimation } from "@scripts/submitFormAnimation";
 
 new Header();
 new Slider();
 new Members();
-new Form();
+
+const formContainers = document.querySelectorAll('.JS-FormContainer');
+for(const container of formContainers) {
+    new SubmitFormAnimation(container);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     new LazyLoader();

@@ -1,43 +1,52 @@
-.Footer{
-    background-color: $nuance-footer;
-    width: 100%;
+.Footer {
+	background-color: $nuance-footer;
+	width: 100%;
 
-    &-container{
-        display: grid;
-        @include desktop-and-bigger {
-            grid-template-columns: 1fr 1fr 1fr;
-            column-gap: 70px;
-        } 
-    }
+	&-container {
+		display: grid;
+		@include desktop-and-bigger {
+			grid-template-columns: 1fr 1fr 1fr;
+			column-gap: 70px;
+		}
+	}
 
-    &-rubrique1, &-rubrique2{
-        margin-bottom: 20px;
-        @include desktop-and-bigger {
+	&-rubrique1,
+	&-rubrique2 {
+		margin-bottom: 20px;
+		@include desktop-and-bigger {
 			margin-bottom: 0px;
 		}
-    }
+	}
 
-    &-newsletter {
-        display: flex;
-        margin-top: 20px;
-        @include desktop-and-bigger {
-            flex-direction: column;
-        }
-    }
+	&-newsletter {
+		display: flex;
+		margin-top: 20px;
+		@include desktop-and-bigger {
+			flex-direction: column;
+		}
+	}
 
-    &-newsletterInput {
-        flex: 1;
-    }
+	&-newsletterInput {
+		flex: 1;
+	}
 
-    &-title {
-        margin-bottom: 10px;
-    }
+	&-title {
+		margin-bottom: 10px;
+	}
 
-    &-button {
-        margin-left: 20px;
-        @include desktop-and-bigger{
-            margin-top: 10px;
-            margin-left: 0;
-        }
-    }
+	&-button {
+		width: 100px;
+		align-self: center;
+		margin-left: 20px;
+		@include desktop-and-bigger {
+			margin-top: 10px;
+			margin-left: 0;
+		}
+		transition-duration: 0.5s;
+	}
+
+	&-button:active,
+	&-button:focus {
+		background-color: $button;
+	}
 }

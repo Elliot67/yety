@@ -4,10 +4,6 @@ export class Members {
 		this.heads = document.querySelectorAll('.Members-head');
 		this.currentTab = document.querySelector('.Members .activeTab');
 		this.currentHead = document.querySelector('.Members .activeHead');
-
-		console.log(this.currentTab);
-
-		console.log(this.currentHead);
 		this.isRunning = false;
 
 		this.events();
@@ -16,9 +12,7 @@ export class Members {
 	events() {
 		for (const head of this.heads) {
 			head.addEventListener('click', (event) => {
-				console.log(this.isRunning);
 				if(!this.isRunning) {
-					console.log('je rentre');
 					this.isRunning = true;
 
 					const target = document.querySelector(".Members-content[data-name='" + event.target.dataset.name + "']");
