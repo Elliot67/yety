@@ -4,17 +4,40 @@
 
     &-container{
         display: grid;
-        
         @include desktop-and-bigger {
             grid-template-columns: 1fr 1fr 1fr;
             column-gap: 70px;
         } 
-
     }
+
     &-rubrique1, &-rubrique2{
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         @include desktop-and-bigger {
 			margin-bottom: 0px;
 		}
+    }
+
+    &-newsletter {
+        display: flex;
+        margin-top: 20px;
+        @include desktop-and-bigger {
+            flex-direction: column;
+        }
+    }
+
+    &-newsletterInput {
+        flex: 1;
+    }
+
+    &-title {
+        margin-bottom: 10px;
+    }
+
+    &-button {
+        margin-left: 20px;
+        @include desktop-and-bigger{
+            margin-top: 10px;
+            margin-left: 0;
+        }
     }
 }
