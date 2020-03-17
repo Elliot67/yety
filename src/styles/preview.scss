@@ -1,43 +1,36 @@
 .Preview {
-	margin-bottom: 180px;
+	margin-bottom: 80px;
 	background-color: $button;
-	height: calc(100vh - 80px);
+	height: 100vh;
+	@include desktop-and-bigger {
+		height: calc(100vh - 80px);
+	}
 
 	&-container {
-		@include desktop-and-bigger {
-			display: grid;
-			grid-template-columns: 40% 60%;
-		}
-	}
-
-	&-image {
-		width: 100%;
+		display: grid;
+		grid-template-rows: auto 1fr;
+		row-gap: 20px;
 		height: 100%;
-		object-fit: cover;
-		transform: translateY(5%);
-	}
-
-	&-title {
-		text-align: center;
+		align-items: center;
 		@include desktop-and-bigger {
-			transform: translateY(60%);
+			grid-template-rows: 1fr;
+			grid-template-columns: 40% 60%;
+			row-gap: 0;
+			column-gap: 20px;
 		}
 	}
 
-	&-text {
+	&-left {
 		text-align: center;
-		@include desktop-and-bigger {
-			transform: translateY(60%);
-		}
 	}
+
 	&-right{
 		background : url('assets/fondheader.png');
-		background-size: 60%;
+		background-size: contain;	
 		background-repeat: no-repeat;
-		transform: translateX(6%);
-		background-position-y: 30px;
-		@include desktop-and-bigger {
-			transform: translateX(24%);
-		}
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: cover;
+		justify-self: center;
 	}
 }
