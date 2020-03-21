@@ -134,7 +134,7 @@ module.exports = env => {
                     use: { // Pour importer les fichiers nécessaires
                         loader: "html-loader",
                         options: {
-                            attrs: [':srcset',':data-srcset', 'img:data-src', 'img:src', 'audio:src', 'video:src', 'track:src', 'embed:src', 'source:src', 'input:src', 'object:data', 'script:src']
+                            attrs: [':srcset',':data-srcset', 'img:data-src', 'img:src', 'audio:src', 'video:src', 'track:src', 'embed:src', 'source:src', 'input:src', 'object:data', 'script:src', 'a:href']
                         }
                     }
                 },

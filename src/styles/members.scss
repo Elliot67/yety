@@ -59,6 +59,9 @@
 			width: 80%;
 			margin-bottom: 20px;
 		}
+		@include desktop-and-bigger {
+			box-shadow: -35px -35px $grey, 20px 20px 20px rgba(0, 0, 0, 0.25);
+		}
 	}
 
 	&-picture {

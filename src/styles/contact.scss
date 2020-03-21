@@ -29,8 +29,12 @@
 		}
 	}
 
+	&-reseaux {
+		display: inline-block;
+	}
+
 	&-reseaux img {
-		// TODO: Changer les fichiers d'icones qui sont cassés
+		display: block;
 		height: 28px;
 		margin-right: 10px;
 	}
