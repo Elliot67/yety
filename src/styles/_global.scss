@@ -1,12 +1,12 @@
 //
 // GLOBAL CSS
-@import url("https://fonts.googleapis.com/css?family=Lobster+Two:400,700|PT+Serif:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster+Two:400,700|Vollkorn:400,700&display=swap");
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: $pt-serif;
+	font-family: $vollkorn;
 	font-size: 14px;
 	line-height: 1.5;
 	@include pad-and-bigger{
@@ -68,7 +68,7 @@ body {
 
 .paragraph {
 	font-size: 14px;
-	font-family: $pt-serif;
+	font-family: $vollkorn;
 	margin-bottom: 0.8em;
 	@include desktop-and-bigger {
 		font-size: 16px;
