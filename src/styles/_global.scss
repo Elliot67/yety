@@ -189,7 +189,7 @@ textarea, .textarea {
 // Fin pour envoyer les formulaires
 
 
-#presentation, #representations, #membres, #photos, #valeurs, #presse {
+#top, #presentation, #representations, #membres, #photos, #valeurs, #presse {
 	@include desktop-and-bigger {
 		scroll-margin-top: 120px;
 	}

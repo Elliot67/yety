@@ -118,8 +118,12 @@
 		}
 	}
 
-	&-logo {
+	&-logoLink {
 		margin: auto auto 0 auto;
+	}
+
+	&-logo {
+		display: block;
 		width: 100px;
 	}
 }
