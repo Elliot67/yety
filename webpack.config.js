@@ -151,6 +151,17 @@ module.exports = env => {
                         },
                         imgLoader // Pour optimiser les images
                     ]
+                },
+                {
+                    test:/\.pdf$/,
+                    use: {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name]-[hash].[ext]",
+                            outputPath: "assets",
+                            esModule: false
+                        }
+                    }
                 }
             ]
         }
