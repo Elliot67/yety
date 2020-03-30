@@ -3,6 +3,10 @@ window.$minPad = 768;
 window.$maxPad = 1023;
 window.$minDesktop = 1024;
 
+
+// IMPORT IMAGES
+import './assets/favicon.png';
+
 // IMPORT JS FILES HERE
 import { Header } from "@scripts/header";
 import { Slider } from "@scripts/slider";
